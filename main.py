@@ -16,6 +16,6 @@ def readRoot():
 def read_item(item_id: int, q: Optional[str] = None):
     return {"item_id": item_id, "q": q}
 
-#app.put("/item/{item_id}")
+@app.put("/item/{item_id}")
 def uodate_item(item_id: int, item: Item):
     return {"item_name": item.name, "item_id":item_id}
