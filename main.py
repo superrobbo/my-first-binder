@@ -18,4 +18,4 @@ def read_item(item_id: int, q: Optional[str] = None):
 
 #app.put("/item/{item_id}")
 def uodate_item(item_id: int, item: Item):
-    return {"item_name": item.name, "item_id":item.id)
+    return {"item_name": item.name, "item_id":item_id)
