@@ -6,7 +6,8 @@ curl -X GET "http://127.0.0.1:8000/openapi.json" >> output.json
 <<comm
 curl -X POST "http://127.0.0.1:8000/" -H  "accept: application/json" -H  "Content-Type: application/json" -d "{\"test_key\":\"test_val\"}"
 comm
-
+echo curl -X GET "http://127.0.0.1:8000/items/" -H 'User-Agent:roberto federico' 
+curl -X GET "http://127.0.0.1:8000/items/" -H 'User-Agent:roberto federico'
 
 echo 
 echo "put"
