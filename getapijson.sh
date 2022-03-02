@@ -33,3 +33,16 @@ curl -X PUT "http://127.0.0.1:8000/items/100" -H "Content-Type: application/json
         }
     ]
 }'
+
+echo "list"
+curl -H 'Content-Type: application/json' -H 'Accept: application/json' -X POST "http://127.0.0.1:8000/images/multiple/" -d '
+[
+ {"url":"http://example.com/dog.jog","name":"dog"},
+ {"url":"http://example.com/deer.jpg","name":"deer"}
+]' 
+echo
+
+echo "dict"
+curl -H 'Content-Type: application/json' -H 'Accept: application/json' -X POST "http://127.0.0.1:8000/index-weights/" -d '
+{ "1":3.5,"2":"A"}
+' 
