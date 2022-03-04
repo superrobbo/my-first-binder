@@ -5,3 +5,4 @@ pandas
 fastapi
 uvicorn[standard]
 pydantic[email,dotenv]
+python-multipart==0.0.5
