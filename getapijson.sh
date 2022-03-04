@@ -1,8 +1,20 @@
 #!/bin/bash
 echo "loading openapi file"
 
-curl -X GET "http://127.0.0.1:8000/openapi.json" >> output.json
+curl -X GET "http://127.0.0.1:8000/openapi.json" > output.json
 
+echo
+echo "form"
+
+curl -X POST "http://127.0.0.1:8000/login/" -H "Content-Type: multipart/form-data" -F "username=king.arthur@camelot.bt" -F "password=guinevere" 
+
+echo "file"
+
+echo "file generic"
+curl -X POST "http://127.0.0.1:8000/files/" -d "file=@my-data/test.txt" 
+echo
+echo "file upload curl lf"
+curl -L -F "file=@output.json" http://127.0.0.1:8000/uploadfile/
 <<comm
 curl -X POST "http://127.0.0.1:8000/" -H  "accept: application/json" -H  "Content-Type: application/json" -d "{\"test_key\":\"test_val\"}"
 comm
