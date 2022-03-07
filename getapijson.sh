@@ -58,4 +58,8 @@ echo
 echo "dict"
 curl -H 'Content-Type: application/json' -H 'Accept: application/json' -X POST "http://127.0.0.1:8000/index-weights/" -d '
 { "1":3.5,"2":"A"}
+
+echo 
+echo "request form & file "
+curl -L -F "file=@output.json" -F "fileb=@my-data/test.txt" -F "token='XXXX'" http://127.0.0.1:8000/files/
 ' 
