@@ -6,6 +6,15 @@ curl -X GET "http://127.0.0.1:8000/openapi.json" > output.json
 echo
 echo "form"
 
+curl -X PUT "http://127.0.0.1:8000/items/50" -H  "Content-Type: application/json" -d '
+{
+    "title": "Foo",
+    "timestamp": "2022-03-15 16:00:00",
+    "description": "Buongiorno a voi!"
+}
+'
+
+<<comm
 curl -X POST "http://127.0.0.1:8000/login/" -H "Content-Type: multipart/form-data" -F "username=king.arthur@camelot.bt" -F "password=guinevere" 
 
 echo "file"
@@ -15,9 +24,8 @@ curl -X POST "http://127.0.0.1:8000/files/" -d "file=@my-data/test.txt"
 echo
 echo "file upload curl lf"
 curl -L -F "file=@output.json" http://127.0.0.1:8000/uploadfile/
-<<comm
+
 curl -X POST "http://127.0.0.1:8000/" -H  "accept: application/json" -H  "Content-Type: application/json" -d "{\"test_key\":\"test_val\"}"
-comm
 echo curl -X GET "http://127.0.0.1:8000/items/" -H 'User-Agent:roberto federico' 
 curl -X GET "http://127.0.0.1:8000/items/" -H 'User-Agent:roberto federico'
 
@@ -58,8 +66,17 @@ echo
 echo "dict"
 curl -H 'Content-Type: application/json' -H 'Accept: application/json' -X POST "http://127.0.0.1:8000/index-weights/" -d '
 { "1":3.5,"2":"A"}
-
+'''
 echo 
 echo "request form & file "
 curl -L -F "file=@output.json" -F "fileb=@my-data/test.txt" -F "token='XXXX'" http://127.0.0.1:8000/files/
 ' 
+
+curl -X POST "http://127.0.0.1:8000/items/50" -H  "Content-Type: application/json" -d '
+{
+    "name": "Foo",
+    "timestamp": "2022-03-15 16:00:00",
+    "description": "Buongiorno a voi!"
+}
+'
+comm
