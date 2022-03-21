@@ -1,10 +1,28 @@
 #!/bin/bash
-echo "loading openapi file"
+echo $$
+ACTION="loading api json"
+echo $ACTION
 
 curl -X GET "http://127.0.0.1:8000/openapi.json" > output.json
 
 echo
-echo "form"
+echo "items"
+
+curl -X GET "http://127.0.0.1:8000/items/?q=foo&limit=2" -H 'User-Agent:roberto federico'
+echo 
+echo "users"
+
+curl -X GET "http://127.0.0.1:8000/users/?q=foo&limit=2&skip=5" -H 'User-Agent:roberto federico'
+
+echo "tests"
+
+curl -X GET "http://127.0.0.1:8000/tests/?q=pippo" -H 'User-Agent:roberto federico'
+
+echo "tests"
+
+curl -X GET "http://127.0.0.1:8000/dpaths/?q=pippo" -H 'x-key:fake-super-secret-key' -H 'x-token:fake-super-secret-token'
+
+<<comm
 
 curl -X PUT "http://127.0.0.1:8000/items/50" -H  "Content-Type: application/json" -d '
 {
