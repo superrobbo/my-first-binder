@@ -6,7 +6,16 @@ echo $ACTION
 curl -X GET "http://127.0.0.1:8000/openapi.json" > output.json
 
 echo
-echo "items"
+echo "items" 
+curl -X GET "http://127.0.0.1:8000/items/" -H "Accept: application/json" -H "Authorization: Bearer johndoe"
+echo "post"
+curl -X POST "http://127.0.0.1:8000/token" -H "Content-Type: multipart/form-data" -F "username=johndoe" -F "password=secret" 
+
+echo "users"
+curl -X GET "http://127.0.0.1:8000/users/me/" -H "Accept: application/json" -H "Authorization: Bearer johndoe"
+
+<<comm
+echo
 
 curl -X GET "http://127.0.0.1:8000/items/?q=foo&limit=2" -H 'User-Agent:roberto federico'
 echo 
@@ -22,7 +31,6 @@ echo "tests"
 
 curl -X GET "http://127.0.0.1:8000/dpaths/?q=pippo" -H 'x-key:fake-super-secret-key' -H 'x-token:fake-super-secret-token'
 
-<<comm
 
 curl -X PUT "http://127.0.0.1:8000/items/50" -H  "Content-Type: application/json" -d '
 {
