@@ -8,11 +8,18 @@ curl -X GET "http://127.0.0.1:8000/openapi.json" > output.json
 echo
 echo "items" 
 curl -X GET "http://127.0.0.1:8000/items/" -H "Accept: application/json" -H "Authorization: Bearer johndoe"
+echo
 echo "post"
 curl -X POST "http://127.0.0.1:8000/token" -H "Content-Type: multipart/form-data" -F "username=johndoe" -F "password=secret" 
+echo
+echo "post"
+curl -X GET "http://127.0.0.1:8000/users/me" -H "Accept: application/json" -H "Authorization: Bearer johndoe"
+echo
+echo "alice"
+curl -X POST "http://127.0.0.1:8000/token"  -H "Content-Type: multipart/form-data" -F "username=alice" -F "password=secret2" 
 
-echo "users"
-curl -X GET "http://127.0.0.1:8000/users/me/" -H "Accept: application/json" -H "Authorization: Bearer johndoe"
+echo "post"
+curl -X GET "http://127.0.0.1:8000/users/me" -H "Accept: application/json" -H "Authorization: Bearer alice"
 
 <<comm
 echo
