@@ -7,6 +7,5 @@ uvicorn[standard]
 pydantic[email,dotenv]
 python-multipart==0.0.5
 ecdsa>=0.17.0 
-pyasn1>=0.4.8 
-python-jose>=3.3.0 
-rsa>=4.8
+pyasn1>=0.4.8
+python-jose[cryptography]
