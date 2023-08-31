@@ -5,7 +5,7 @@ pandas
 fastapi
 uvicorn[standard]
 pydantic[email,dotenv]
-python-multipart==0.0.5
+python-multipart>=0.0.5
 ecdsa>=0.17.0 
 pyasn1>=0.4.8
 python-jose[cryptography]
