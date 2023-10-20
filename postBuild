@@ -1,4 +1,3 @@
 wget -q -O my-data/gapminder.csv http://bit.ly/2uh4s3g
 conda list >> my-data/list.txt
-git clone https://github.com/jupyterhub/binderhub
 
