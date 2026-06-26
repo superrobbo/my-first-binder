@@ -1,5 +1,6 @@
 wget -q -O my-data/gapminder.csv http://bit.ly/2uh4s3g
 conda list >> my-data/list.txt
-curl -fsSL https://claude.ai/install.sh >> claudeinstalllog.txt
+# Install Claude CLI globally
+npm install -g @anthropic-ai/claude
 git clone https://github.com/emscripten-core/emsdk.git && cd emsdk
 
